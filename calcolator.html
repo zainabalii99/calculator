@@ -1,0 +1,65 @@
+
+<DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <section>
+        <div class="container">
+        <p id="display"></p>
+        <div class="buttons">
+            
+            <button type="button" value='C' class="but">C</button>
+            <button type="button" value="*" class="but">*</button>
+            <button type="button" value="/" class="but">/</button>
+            <button type="button" value="DEL" class="but">DEL</button>
+            <button type="button" value="7" class="but">7</button>
+            <button type="button" value="8" class="but">8</button>
+            <button type="button" value="9" class="but">9</button>
+            <button type="button" value="-" class="but">-</button>
+            <button type="button" value="4" class="but">4</button>
+            <button type="button" value="5" class="but">5</button>
+            <button type="button" value="6" class="but">6</button>
+            <button type="button" value="+" class="but">+</button>
+            <button type="button" value="1" class="but">1</button>
+            <button type="button" value="2" class="but">2</button>
+            <button type="button" value="3" class="but">3</button>
+            <button type="button" value="." class="but">.</button>
+            <button type="button" value="0" class="but">0</button>
+            <button type="button" value="00" class="but">00</button>
+            <button type="button" value="000" class="but">000</button>
+            <button type="button" value="=" class="but">=</button>
+        </div>
+    </div>
+
+
+    </section>  
+    <script>
+let dis = document.getElementById('display');
+let button = Array.from(document.getElementsByClassName('but'));
+button.map(but =>{
+    but.addEventListener('click', (e) => {
+        switch(e.target.innerText){
+            case 'C':
+                dis.innerText= " ";
+                break;
+            case 'DEL': 
+                dis.innerText= dis.innerText.slice(0,-1);
+                break;
+            case '=': 
+            dis.innerText = eval(dis.innerText);
+            break;
+            
+            default:
+                dis.innerText += e.target.innerText;
+        }
+
+    })
+})
+    </script>
+</body>
+</html>
